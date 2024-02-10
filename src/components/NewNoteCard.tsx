@@ -1,10 +1,13 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, KeyboardEvent, useState } from 'react'
 import { toast } from 'sonner'
 
-const NewNoteCard = () => {
+interface NewNoteCradProps {
+  onNoteCreated: (content: string) => void
+}
 
+const NewNoteCard = ({onNoteCreated}: NewNoteCradProps) => {
   const [shouldShowOnboarding, setShouldShowOnboarding] = useState(true)
   const [content, setContent] = useState('')
 
@@ -21,8 +24,7 @@ const NewNoteCard = () => {
     }
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    console.log(event.key)
+  const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === 'Backspace' && content.trim() === '') {
       setShouldShowOnboarding(true);
     }
@@ -30,6 +32,9 @@ const NewNoteCard = () => {
 
   const handleSaveNote = (event: FormEvent) => {
     event.preventDefault()
+    onNoteCreated(content)
+    setContent('')
+    setShouldShowOnboarding(true);
     toast.success('Nota criada com sucesso!')
   }
 
@@ -53,7 +58,7 @@ const NewNoteCard = () => {
                 {shouldShowOnboarding ? (
                   <p className='text-sm leading-6 text-slate-400'>Comece <button className='font-medium text-lime-400 hover:underline'>gravando uma nota</button> em áudio ou se preferir <button onClick={handleStartEditor} className='font-medium text-lime-400 hover:underline'>utilize apenas texto</button>.</p>
                 ) : (
-                  <textarea autoFocus onChange={handleContentChanged} onKeyDown={handleKeyDown} className='text-sm leading-6 text-slate-400 bg-transparent resize-none flex-1 outline-none' />
+                  <textarea autoFocus onChange={handleContentChanged} onKeyDown={handleKeyDown} value={content} className='text-sm leading-6 text-slate-400 bg-transparent resize-none flex-1 outline-none' />
                 )}
               </div>
 
