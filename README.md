@@ -1,6 +1,11 @@
 # NLW Experts - Aplicação em React
 
-Esta aplicação foi desenvolvida durante o evento NLW Experts da Rocketseat utilizando as seguintes tecnologias:
+Esta aplicação permite a criação de anotações de duas maneiras:
+
+- **Manualmente**: Os usuários podem digitar suas anotações diretamente na interface e salvar o bloco de texto.
+- **Gravação de áudio**: A funcionalidade de gravação de áudio transcreve automaticamente o conteúdo falado em tempo real.
+
+Desenvolvida utilizando as seguintes tecnologias:
 
 - **React**: Biblioteca JavaScript para construção de interfaces de usuário.
 - **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
