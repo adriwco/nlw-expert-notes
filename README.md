@@ -19,3 +19,7 @@
 - **[lucide-react](https://lucide.dev/)**: Conjunto de ícones.
 - **[sonner](https://sonner.emilkowal.ski/)**: Utilizado para exibir alertas.
 - **[@types/dom-speech-recognition](https://www.npmjs.com/package/@types/dom-speech-recognition)**: Tipagens para a API de reconhecimento de fala.
+##
+## <p align="center"> Aplicação disponível em [nlw-expert-notes](https://nlw-expert-notes-snowy.vercel.app)</p>
+
+### <p align="center">🔹[![License: MIT](https://img.shields.io/badge/License-MIT-0F172A.svg)](https://opensource.org/licenses/MIT)🔹</p>
